@@ -1,18 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import {  RouterProvider } from 'react-router-dom'
 import './index.css'
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { router } from './router';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <div className=' text-red-500'>Hello world!</div>,
-  },
-]);
-
+const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
     <RouterProvider router={router} />
+    </QueryClientProvider>
   </React.StrictMode>,
 )
