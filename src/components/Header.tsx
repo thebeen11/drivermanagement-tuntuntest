@@ -1,16 +1,26 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { menu } from "../router/menu";
+import { Menu } from "../interface/menu";
 
 interface HeaderProps {
-  title: string;
-  subTitle: string;
   children?: ReactNode;
 }
-const Header = ({ title, subTitle, children }: HeaderProps) => {
+const Header = ({ children }: HeaderProps) => {
+  const [activeMenu, setActiveMenu] = useState<Menu>();
+  const location = useLocation();
+  useEffect(() => {
+    const active = menu.find((item) => item.path == location.pathname);
+    setActiveMenu(active);
+  }, [location]);
+
   return (
-    <div className=" w-full bg-white flex justify-between">
+    <div className=" w-full bg-white flex justify-between p-5 items-center">
       <div>
-        <p>{title}</p>
-        <p>{subTitle}</p>
+        <h1 className=" text-2xl font-bold text-primary">
+          {activeMenu?.label}
+        </h1>
+        <p>{activeMenu?.description}</p>
       </div>
 
       <div>{children}</div>

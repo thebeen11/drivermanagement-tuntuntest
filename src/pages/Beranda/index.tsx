@@ -1,8 +1,11 @@
+import Header from "../../components/Header";
 
 const Beranda = () => {
   return (
-    <div>Beranda</div>
-  )
-}
+    <div>
+      <Header />
+    </div>
+  );
+};
 
-export default Beranda
+export default Beranda;

@@ -4,4 +4,5 @@ export interface Menu {
   label: string;
   path: string;
   icon: IconType;
+  description?: string;
 }

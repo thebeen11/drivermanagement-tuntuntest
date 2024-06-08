@@ -3,11 +3,11 @@ import { menu } from "../router/menu";
 
 const Sidebar = () => {
   return (
-    <div className=" w-full h-full flex flex-col gap-3">
+    <div className=" w-full h-full flex flex-col gap-3 px-6 py-10">
       {menu.map((item) => (
         <NavLink
           className={({ isActive }) =>
-            `${isActive ? "text-red-400" : ""}  flex gap-3`
+            `${isActive ? "text-primary font-semibold" : ""}  flex gap-3 items-center`
           }
           key={item.path}
           to={item.path}

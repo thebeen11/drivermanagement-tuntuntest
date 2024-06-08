@@ -1,8 +1,11 @@
+import Header from "../../components/Header";
 
 const PickUp = () => {
   return (
-    <div>PickUp</div>
-  )
-}
+    <div>
+      <Header />
+    </div>
+  );
+};
 
-export default PickUp
+export default PickUp;

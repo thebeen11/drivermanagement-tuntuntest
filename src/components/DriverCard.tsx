@@ -1,3 +1,4 @@
+import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { DriverInterface } from "../interface/driver";
 import { formatDate } from "../utils";
 
@@ -7,24 +8,30 @@ interface DriverCardProps {
 
 const Identity = ({ title, subTitle }: { title: string; subTitle: string }) => {
   return (
-    <div>
-      <p>{title}</p>
-      <p>{subTitle}</p>
+    <div className=" px-4 py-1">
+      <p className=" text-xs text-title">{title}</p>
+      <p className=" text-sm font-medium line-clamp-1 text-ellipsis ">
+        {subTitle}
+      </p>
     </div>
   );
 };
 
 const DriverCard = ({ driver }: DriverCardProps) => {
   return (
-    <div className=" w-full bg-white flex-col">
-      <div>
-        <p>
-          Driver ID <span>{driver.id.value}</span>
+    <div className=" w-full bg-white flex-col py-3 shadow-sm">
+      <div className=" py-3  border-b px-4 flex justify-between">
+        <p className=" text-sm">
+          Driver ID{" "}
+          <span className=" text-primary">
+            {driver.id.name ? driver.id.name : "Data Not Found"}
+          </span>
         </p>
+        <HiOutlineDotsHorizontal />
       </div>
 
-      <div>
-        <img src={driver.picture.thumbnail} alt="" />
+      <div className="p-4">
+        <img className=" w-20 rounded-full" src={driver.picture.large} alt="" />
       </div>
 
       <Identity

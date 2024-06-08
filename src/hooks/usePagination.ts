@@ -9,8 +9,8 @@ const usePagination = <T>(data: T[]) => {
   const totalPages = Math.ceil(data.length / pageSize);
 
   // Check if the page is first or last
-  const isFirstPage = pageNumber === 1;
-  const isLastPage = pageNumber === totalPages;
+  const isFirstPage = pageNumber === 1 || totalPages == 0;
+  const isLastPage = pageNumber === totalPages || totalPages == 0;
 
   // Paginate the data
   const startIndex = (pageNumber - 1) * pageSize;
