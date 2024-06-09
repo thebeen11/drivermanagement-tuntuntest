@@ -5,12 +5,20 @@ import { Menu } from "../interface/menu";
 
 interface HeaderProps {
   children?: ReactNode;
+  isDescription?: boolean;
 }
-const Header = ({ children }: HeaderProps) => {
+const Header = ({ children, isDescription = true }: HeaderProps) => {
   const [activeMenu, setActiveMenu] = useState<Menu>();
   const location = useLocation();
   useEffect(() => {
-    const active = menu.find((item) => item.path == location.pathname);
+    const pattern = /^\/([^/]+)/;
+
+    const match = location.pathname.match(pattern);
+    let firstPathSegmentWithSlash = "";
+    if (match) {
+      firstPathSegmentWithSlash = match[0];
+    }
+    const active = menu.find((item) => item.path == firstPathSegmentWithSlash);
     setActiveMenu(active);
   }, [location]);
 
@@ -20,7 +28,7 @@ const Header = ({ children }: HeaderProps) => {
         <h1 className=" text-2xl font-bold text-primary">
           {activeMenu?.label}
         </h1>
-        <p>{activeMenu?.description}</p>
+        {isDescription ? <p>{activeMenu?.description}</p> : ""}
       </div>
 
       <div>{children}</div>

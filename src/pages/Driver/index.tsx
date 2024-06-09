@@ -3,11 +3,13 @@ import DriverCard from "../../components/DriverCard";
 import Header from "../../components/Header";
 import PaginationNav from "../../components/PaginationNav";
 import usePagination from "../../hooks/usePagination";
-import useStore from "../../store";
+import useDriverStore from "../../store";
 import { GoPlus } from "react-icons/go";
+import { Link } from "react-router-dom";
+import Input from "../../components/Input";
 
 const Driver = () => {
-  const { search, drivers } = useStore((state) => ({
+  const { search, drivers } = useDriverStore((state) => ({
     search: state.search,
     drivers: state.drivers,
   }));
@@ -19,19 +21,20 @@ const Driver = () => {
     <div className=" flex flex-col gap-5">
       <Header>
         <div className=" flex gap-3">
-          <div className=" flex gap-2 items-center border border-title px-2 py-3 rounded-sm">
-            <FaSearch className=" text-primary" />
-            <input
-              className=" border-none outline-none font-light"
-              placeholder="Cari Driver"
-              type="text"
-              onChange={(v) => search(v.target.value)}
-            />
-          </div>
-          <button className=" flex items-center gap-2 bg-primary text-white font-light uppercase px-2 py-3">
+          <Input
+            Icon={FaSearch}
+            type="text"
+            placeholder="Cari Driver"
+            onChange={(v) => search(v.target.value)}
+          />
+
+          <Link
+            to={`/driver-management/add`}
+            className=" flex items-center gap-2 bg-primary text-white font-light uppercase px-2 py-3"
+          >
             Tambah Driver
             <GoPlus />
-          </button>
+          </Link>
         </div>
       </Header>
 

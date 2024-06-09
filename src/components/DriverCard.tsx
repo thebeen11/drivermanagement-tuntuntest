@@ -24,7 +24,7 @@ const DriverCard = ({ driver }: DriverCardProps) => {
         <p className=" text-sm">
           Driver ID{" "}
           <span className=" text-primary">
-            {driver.id.name ? driver.id.name : "Data Not Found"}
+            {driver.id.name ? driver.id.name : "-"}
           </span>
         </p>
         <HiOutlineDotsHorizontal />

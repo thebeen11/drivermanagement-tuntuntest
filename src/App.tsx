@@ -1,9 +1,18 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
-import useDriver from "./hooks/useDriver";
+import useDriverStore from "./store";
+import { useEffect } from "react";
 
 const App = () => {
-  useDriver();
+  const { fetchDrivers } = useDriverStore();
+
+  useEffect(() => {
+    const getInitalDriverData = async () => {
+      await fetchDrivers();
+    };
+    getInitalDriverData();
+  }, [fetchDrivers]);
+
   return (
     <div className="w-full grid grid-cols-12 h-screen">
       <div className="col-span-2 " data-testid="navigation">
