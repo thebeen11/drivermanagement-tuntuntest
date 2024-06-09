@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import Driver from "../pages/Driver";
-import Beranda from "../pages/Beranda";
-import PickUp from "../pages/Pickup";
-import AddDriver from "../pages/Driver/Form";
+import { lazy, Suspense } from "react";
+const LazyDriver = lazy(() => import("../pages/Driver"));
+const LazyBeranda = lazy(() => import("../pages/Beranda"));
+const LazyPickUp = lazy(() => import("../pages/Pickup"));
+const LazyAddDriver = lazy(() => import("../pages/Driver/Form"));
 
 export const router = createBrowserRouter([
   {
@@ -12,19 +13,35 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Beranda />,
+        element: (
+          <Suspense fallback={<p>Loading.....</p>}>
+            <LazyBeranda />
+          </Suspense>
+        ),
       },
       {
         path: "/driver-management",
-        element: <Driver />,
+        element: (
+          <Suspense fallback={<p>Loading.....</p>}>
+            <LazyDriver />
+          </Suspense>
+        ),
       },
       {
         path: "/driver-management/add",
-        element: <AddDriver />,
+        element: (
+          <Suspense fallback={<p>Loading.....</p>}>
+            <LazyAddDriver />
+          </Suspense>
+        ),
       },
       {
         path: "/pickup",
-        element: <PickUp />,
+        element: (
+          <Suspense fallback={<p>Loading.....</p>}>
+            <LazyPickUp />
+          </Suspense>
+        ),
       },
     ],
   },

@@ -12,7 +12,7 @@ const Input = ({ Icon, ...rest }: Input) => {
       <div className=" flex gap-2 items-center border border-title px-2 py-3 rounded-sm">
         {Icon ? <Icon className=" text-primary" /> : ""}
         <input
-          className=" border-none w-full outline-none font-light"
+          className=" border-none focus:border-none focus:outline-none w-full outline-none font-light"
           {...rest}
         />
       </div>

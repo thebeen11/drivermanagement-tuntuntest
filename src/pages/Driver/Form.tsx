@@ -1,7 +1,7 @@
 import { FaCalendarAlt, FaUser } from "react-icons/fa";
 import Header from "../../components/Header";
 import { MdEmail, MdOutlinePhoneEnabled } from "react-icons/md";
-import useDriverStore from "../../store";
+import useDriverStore from "../../store/useDriverStore";
 import Input from "../../components/Input";
 import { ChangeEvent, FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";

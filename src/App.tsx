@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
-import useDriverStore from "./store";
+import useDriverStore from "./store/useDriverStore";
 import { useEffect } from "react";
 
 const App = () => {
@@ -15,11 +15,11 @@ const App = () => {
 
   return (
     <div className="w-full grid grid-cols-12 h-screen">
-      <div className="col-span-2 " data-testid="navigation">
+      <div className="col-span-2 hidden lg:block" data-testid="navigation">
         <Sidebar />
       </div>
       <div
-        className="col-span-10 bg-[#FAF9F9] overflow-y-scroll px-6 py-10"
+        className="lg:col-span-10 col-span-12 bg-[#FAF9F9] overflow-y-scroll px-6 py-10"
         data-testid="outlet"
       >
         <Outlet />

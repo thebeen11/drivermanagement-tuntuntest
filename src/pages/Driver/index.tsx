@@ -3,7 +3,7 @@ import DriverCard from "../../components/DriverCard";
 import Header from "../../components/Header";
 import PaginationNav from "../../components/PaginationNav";
 import usePagination from "../../hooks/usePagination";
-import useDriverStore from "../../store";
+import useDriverStore from "../../store/useDriverStore";
 import { GoPlus } from "react-icons/go";
 import { Link } from "react-router-dom";
 import Input from "../../components/Input";
@@ -20,12 +20,13 @@ const Driver = () => {
   return (
     <div className=" flex flex-col gap-5">
       <Header>
-        <div className=" flex gap-3">
+        <div className=" flex flex-col lg:flex-row gap-3 w-full">
           <Input
             Icon={FaSearch}
             type="text"
             placeholder="Cari Driver"
             onChange={(v) => search(v.target.value)}
+            className=""
           />
 
           <Link
@@ -39,7 +40,7 @@ const Driver = () => {
       </Header>
 
       {paginatedData.length > 0 ? (
-        <div className=" grid grid-cols-5 gap-5 w-full">
+        <div className=" grid lg:grid-cols-5 grid-cols-1 gap-5 w-full">
           {paginatedData?.map((driver) => (
             <DriverCard key={driver.cell} driver={driver} />
           ))}
