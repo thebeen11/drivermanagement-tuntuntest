@@ -10,9 +10,7 @@ const Identity = ({ title, subTitle }: { title: string; subTitle: string }) => {
   return (
     <div className=" px-4 py-1">
       <p className=" text-xs text-title">{title}</p>
-      <p className=" text-sm font-medium line-clamp-1 text-ellipsis ">
-        {subTitle}
-      </p>
+      <p className=" text-sm font-medium break-words ">{subTitle}</p>
     </div>
   );
 };

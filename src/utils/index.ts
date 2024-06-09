@@ -21,3 +21,22 @@ export const getData = async (): Promise<DriverInterface[]> => {
     return [];
   }
 };
+
+export const addData = async (
+  driver: DriverInterface,
+): Promise<DriverInterface[]> => {
+  const drivers = localStorage.getItem("driver");
+
+  if (!drivers) {
+    return [];
+  }
+  try {
+    const newDrivers = JSON.parse(drivers);
+    newDrivers.unshift(driver);
+
+    localStorage.setItem("driver", JSON.stringify(newDrivers));
+    return newDrivers;
+  } catch (error) {
+    return [];
+  }
+};

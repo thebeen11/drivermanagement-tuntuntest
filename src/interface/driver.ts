@@ -24,7 +24,7 @@ export interface Dob {
 
 export interface ID {
   name: string;
-  value: null;
+  value: string;
 }
 
 export interface Location {

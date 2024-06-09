@@ -3,7 +3,7 @@ import App from "../App";
 import Driver from "../pages/Driver";
 import Beranda from "../pages/Beranda";
 import PickUp from "../pages/Pickup";
-import AddDriver from "../pages/Driver/add";
+import AddDriver from "../pages/Driver/Form";
 
 export const router = createBrowserRouter([
   {
