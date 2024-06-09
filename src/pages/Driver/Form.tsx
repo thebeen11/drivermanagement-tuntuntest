@@ -23,7 +23,7 @@ const AddDriver = () => {
   };
   return (
     <div>
-      <Header isDescription={false}></Header>
+      <Header title="Add Driver Management" />
       <div className=" bg-white rounded-sm w-full p-6 mt-10">
         <form onSubmit={handleSubmit}>
           <div className=" mt-3">

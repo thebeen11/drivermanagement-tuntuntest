@@ -2,8 +2,8 @@ import Header from "../../components/Header";
 
 const PickUp = () => {
   return (
-    <div>
-      <Header />
+    <div data-testid="header">
+      <Header title="Pickup" />
     </div>
   );
 };

@@ -8,13 +8,11 @@ export const menu: Menu[] = [
   {
     label: "Driver Management",
     path: "/driver-management",
-    description: "Data driver yang bekerja dengan Anda.",
     icon: HiUserCircle,
   },
   {
     label: "Pickup",
     path: "/pickup",
-    description: "Data barang yang harus dipickup",
     icon: MdDateRange,
   },
 ];
