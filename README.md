@@ -13,10 +13,15 @@ Before you begin, ensure you have the following installed on your machine:
 ## Setup
 
 1.  Clone this repository to your local machine.
+
     `git clone https://github.com/thebeen11/drivermanagement-tuntuntest`
+
 2.  Navigate into the project directory.
+
     `cd drivermanagement-tuntuntest`
+
 3.  Install dependencies.
+
     `npm install`
 
 ## Available Scripts
