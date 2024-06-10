@@ -59,7 +59,7 @@ Starts the preview server using Vite.
 - Generate code coverage reports using `npm run coverage`.
 - Build the project for production using `npm run build`.
 - Preview the production build using `npm run preview`.
-- The deployed application can be accessed at [https://drivermanagement-tuntuntest.vercel.app/](https://drivermanagement-tuntuntest.vercel.app/).
+- The deployed application can be accessed at [https://drivermanagement-tuntuntest.vercel.app/](drivermanagement-tuntuntest.vercel.app).
 
 ## Contributing
 
