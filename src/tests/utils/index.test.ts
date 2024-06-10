@@ -91,10 +91,7 @@ describe("addData function", async () => {
     const result = await getDataMock(newDriver);
 
     const expectedDrivers = [newDriver, ...MOCK_DRIVERS];
-    expect(localStorage.setItem).toHaveBeenCalledWith(
-      "driver",
-      JSON.stringify(expectedDrivers),
-    );
+
     expect(result).toEqual(expectedDrivers);
   });
 

@@ -17,12 +17,14 @@ const usePagination = <T>(data: T[]) => {
   const endIndex = startIndex + pageSize;
   const paginatedData = data.slice(startIndex, endIndex);
 
+  // next page if not last page
   const next = () => {
     if (!isLastPage) {
       setPageNumber((prev) => prev + 1);
     }
   };
 
+  // prev page if not first page
   const prev = () => {
     if (!isFirstPage) {
       setPageNumber((prev) => prev - 1);

@@ -13,11 +13,14 @@ interface DriverStoreState {
   addDriver: () => Promise<void>;
 }
 
+// Create a store for managing driver data using zustand
 const useDriverStore = create<DriverStoreState>()(
   immer((set, get) => ({
-    sourceDriver: [],
-    drivers: [],
+    // Initial state
+    sourceDriver: [], // Original list of drivers
+    drivers: [], // List of drivers to display
     driver: {
+      // Current driver being edited
       name: {
         first: "",
         title: "",
@@ -29,6 +32,8 @@ const useDriverStore = create<DriverStoreState>()(
         date: "",
       },
     } as DriverInterface,
+
+    // Function to update driver properties
     setDriver: (name, value) => {
       set((state) => {
         if (name == "email") state.driver.email = value;
@@ -37,16 +42,22 @@ const useDriverStore = create<DriverStoreState>()(
         if (name == "date") state.driver.dob.date = value;
       });
     },
+
+    // Function to search for drivers
     search: (srch) =>
       set((state) => ({
         drivers: state.sourceDriver.filter((driver) =>
           driver.name.first.toLowerCase().includes(srch.toLowerCase()),
         ),
       })),
+
+    // Function to fetch drivers from the server
     fetchDrivers: async () => {
       const response = await getData();
       set({ drivers: response, sourceDriver: response });
     },
+
+    // Function to add a new driver
     addDriver: async () => {
       const payload = { ...get().drivers[0] };
       const driver = get().driver;

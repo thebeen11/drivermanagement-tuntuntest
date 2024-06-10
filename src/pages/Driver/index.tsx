@@ -10,10 +10,11 @@ import Input from "../../components/Input";
 
 const Driver = () => {
   const { search, drivers } = useDriverStore((state) => ({
-    search: state.search,
-    drivers: state.drivers,
+    search: state.search, // Search state from store
+    drivers: state.drivers, // Drivers state from store
   }));
 
+  // Paginated data and pagination controls from usePagination hook
   const { paginatedData, isFirstPage, isLastPage, next, prev } =
     usePagination(drivers);
 
@@ -54,6 +55,7 @@ const Driver = () => {
         </>
       )}
 
+      {/* Pagination navigation */}
       <PaginationNav
         isFirstPage={isFirstPage}
         isLastPage={isLastPage}

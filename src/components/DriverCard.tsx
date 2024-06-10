@@ -2,10 +2,12 @@ import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { DriverInterface } from "../interface/driver";
 import { formatDate } from "../utils";
 
+// Define the properties for the DriverCard component
 interface DriverCardProps {
   driver: DriverInterface;
 }
 
+// Functional component to display a title and subtitle
 const Identity = ({ title, subTitle }: { title: string; subTitle: string }) => {
   return (
     <div className=" px-4 py-1">
@@ -15,6 +17,7 @@ const Identity = ({ title, subTitle }: { title: string; subTitle: string }) => {
   );
 };
 
+// Functional component to display driver information card
 const DriverCard = ({ driver }: DriverCardProps) => {
   return (
     <div className=" w-full bg-white flex-col py-3 shadow-sm">

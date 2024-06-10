@@ -7,17 +7,21 @@ import { ChangeEvent, FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const AddDriver = () => {
+  // Access driver data and actions from zustand
   const { driver, setDriver, addDriver } = useDriverStore();
+
   const navigate = useNavigate();
 
+  // Function to handle input changes
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setDriver(name, value);
+    setDriver(name, value); // Update driver state with new input value
   };
 
+  // Function to handle form submission
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    addDriver();
+    addDriver(); // Add new driver data
     alert("Success");
     navigate("/driver-management");
   };
